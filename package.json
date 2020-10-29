@@ -1,0 +1,13 @@
+{
+  "name": "binary.js",
+  "version": "0.1.0",
+  "description": "Create binary file formats in javascript",
+  "main": "index.js",
+  "repository": "https://github.com/ajzat34/binary.js.git",
+  "author": "Andrew Johnson <ajzat25@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "semver": "^7.3.2"
+  }
+}
