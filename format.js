@@ -67,20 +67,20 @@ const type_string = new token.TokenTemplate(
 class BasicToken extends token.Token {};
 
 const tokens = {
-  string:  new token.TokenTemplate('string',0x03, [Field.string('ENTRY'), Field.string('DATA')], BasicToken),
+  string:   new token.TokenTemplate('string',0x03,  [Field.string('ENTRY'), Field.string('DATA')], BasicToken),
 
-  uint8:   new token.TokenTemplate('uint8',0x04, [Field.string('ENTRY'), Field.uint8('DATA')], BasicToken),
-  uint16:  new token.TokenTemplate('uint16',0x05, [Field.string('ENTRY'), Field.uint16('DATA')], BasicToken),
-  uint32:  new token.TokenTemplate('uint32',0x06, [Field.string('ENTRY'), Field.uint32('DATA')], BasicToken),
+  uint8:    new token.TokenTemplate('uint8',0x04,   [Field.string('ENTRY'), Field.uint8('DATA')],  BasicToken),
+  uint16:   new token.TokenTemplate('uint16',0x05,  [Field.string('ENTRY'), Field.uint16('DATA')], BasicToken),
+  uint32:   new token.TokenTemplate('uint32',0x06,  [Field.string('ENTRY'), Field.uint32('DATA')], BasicToken),
 
-  n_uint8:  new token.TokenTemplate('n_int8',0x07, [Field.string('ENTRY'), Field.uint8('DATA')], BasicToken),
+  n_uint8:  new token.TokenTemplate('n_int8',0x07,  [Field.string('ENTRY'), Field.uint8('DATA')],  BasicToken),
   n_uint16: new token.TokenTemplate('n_int16',0x08, [Field.string('ENTRY'), Field.uint16('DATA')], BasicToken),
   n_uint32: new token.TokenTemplate('n_int32',0x09, [Field.string('ENTRY'), Field.uint32('DATA')], BasicToken),
 
-  buffer:  new token.TokenTemplate('buffer',0x0a, [Field.string('ENTRY'), Field.buffer('DATA')], BasicToken),
+  buffer:   new token.TokenTemplate('buffer',0x0a,  [Field.string('ENTRY'), Field.buffer('DATA')], BasicToken),
 
-  null:    new token.TokenTemplate('null',0x0b, [Field.string('ENTRY')], BasicToken),
-  zero:    new token.TokenTemplate('zero',0x0c, [Field.string('ENTRY')], BasicToken),
+  null:     new token.TokenTemplate('null',0x0b,    [Field.string('ENTRY')], BasicToken),
+  zero:     new token.TokenTemplate('zero',0x0c,    [Field.string('ENTRY')], BasicToken),
 }
 
 function tokenize(name, data) {
