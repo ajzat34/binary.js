@@ -36,6 +36,7 @@ class TokenTemplate {
     assert(name);
     assert(opcode);
     assert(opcode < 255 && opcode > 0);
+    // assert(usePrototype instanceof Token);
     this.name = name;
     this.opcode = opcode;
     this.fields = fields;
@@ -87,6 +88,6 @@ class TokenTemplate {
 }
 
 module.exports = {
-  TokenTemplate,
   Token,
+  TokenTemplate,
 };
