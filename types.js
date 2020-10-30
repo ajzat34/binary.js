@@ -79,7 +79,7 @@ class TypeFormat {
       const index = options.indexOf(data);
       if (index < 0) throw new TypeFormatError(`Invalid option for enum ${name}: ${data}`)
       const b = Buffer.allocUnsafe(bytes);
-      b.writeUIntLE(data, 0, bytes);
+      b.writeUIntLE(index, 0, bytes);
       return b;
     }
 

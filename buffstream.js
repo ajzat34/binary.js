@@ -10,14 +10,19 @@ class BufferStream {
   * @param {number | undefined} start the offset to start at
   * @param {Buffer | undefined} data the buffer to use
   */
-  constructor(start=0, data = Buffer.allocUnsafe(1)) {
+  constructor(start=0, data = Buffer.allocUnsafe(128)) {
     assert(data instanceof Buffer);
     this.offset = start;
     this.data = data;
+    this.size = 0;
   }
 
   get length() {
     return this.offset;
+  }
+
+  remaining() {
+    return this.data.length - this.offset;
   }
 
   /**
@@ -43,6 +48,15 @@ class BufferStream {
     };
     buff.copy(this.data, this.offset);
     this.offset += size;
+    if (this.offset > this.size) this.size = this.offset;
+  }
+
+  /**
+  * jump to an offset
+  * @param {number} offset
+  */
+  seek(offset) {
+    this.offset = offset
   }
 
   /**
@@ -56,7 +70,7 @@ class BufferStream {
   }
 
   export() {
-    return this.data.slice(0, this.offset);
+    return this.data.slice(0, this.size);
   }
 }
 

@@ -151,6 +151,10 @@ class Field {
   static buffer(name, arraysize) {
     return new Field(name, types.type.buffer, arraysize);
   }
+
+  static enum(name, options, arraysize) {
+    return new Field(name, types.type.enumFactory(name, options), arraysize);
+  }
 }
 
 module.exports = Field;

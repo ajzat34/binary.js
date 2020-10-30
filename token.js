@@ -1,15 +1,16 @@
 const Field = require('./field.js');
 const assert = require('assert').strict;
+const util = require('util');
 
 class Token {
-  template;
+  #template;
 
   /**
   * @constructor
   * @param {TokenTemplate} template
   */
   constructor(template){
-    this.template = template
+    this.#template = template
   };
 
   /**
@@ -17,8 +18,10 @@ class Token {
   * @param {Writeable} stream
   */
   write(stream) {
-    this.template.write(stream, this);
+    this.#template.write(stream, this);
   }
+
+  toString() {return util.inspect(this, {depth: 0});}
 }
 
 class TokenTemplate {
@@ -81,6 +84,7 @@ class TokenTemplate {
   instance(data) {
     const fielddata = new this.usePrototype(this);
     for (const field of this.fields) {
+      if (!data.hasOwnProperty(field.name)) throw new Error(`Failed to instance TokenTemplate "${this.name}": no value for "${field.name}"`)
       fielddata[field.name] = field.parse(data[field.name]);
     }
     return fielddata;

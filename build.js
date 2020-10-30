@@ -5,6 +5,7 @@ const Field = require('./field.js');
 class Builder {
   constructor() {
     this.tokens = {};
+    this.create = {};
     this.opcode = 0x10;
   }
 
@@ -19,8 +20,16 @@ class Builder {
     const tk = new token.TokenTemplate(name, this.opcode, fields, proto);
     this.tokens[tk.opcode] = tk;
     this.opcode++;
-    return (...args)=>(tk.instance(...args));
+    const create = (...args)=>(tk.instance(...args));
+    this.create[name] = create
+    return create;
   }
+
+  GetTokenCreators() {
+    return this.create;
+  }
+
+  static Token = token.Token;
 }
 
 module.exports = Builder

@@ -7,7 +7,5 @@
   "author": "Andrew Johnson <ajzat25@gmail.com>",
   "license": "MIT",
   "private": true,
-  "dependencies": {
-    "semver": "^7.3.2"
-  }
+  "dependencies": {}
 }
