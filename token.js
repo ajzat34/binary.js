@@ -55,7 +55,7 @@ class TokenTemplate {
 
   /**
   * Read from a stream, DOES NOT READ CODE
-  * @param {Readable} stream
+  * @param {BufferStream} stream
   */
   read(stream) {
     const fielddata = new this.usePrototype(this);
@@ -68,7 +68,7 @@ class TokenTemplate {
   /**
   * write to a stream
   * @param {Writeable} stream
-  * @param {Object} data
+  * @param {BufferStream} data
   */
   write(stream, data) {
     TokenTemplate.OPCODE_FIELD.write(stream, this.opcode);

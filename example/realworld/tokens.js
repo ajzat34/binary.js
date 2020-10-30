@@ -31,7 +31,7 @@ class ItemToken extends BaseToken {
 
 class NoteToken extends BaseToken {
   update(stores, current) {
-    console.log('Note:', this.data)
+    console.log('Note:', this.data);
   }
 }
 

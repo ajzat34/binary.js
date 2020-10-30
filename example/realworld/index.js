@@ -3,14 +3,16 @@ const {Format, Builder, Field} = require('../../index.js');
 
 const FILE = './data';
 
-const v2loader = require('./v2.js');
-const v2 = v2loader();
+// load the most recent version
+const v2 = require('./v2.js');
 const {store, section, item, note} = v2.GetTokenCreators();
 
+// create the format
 const listFF = new Format('example', 'v2', v2);
 
-// add support for the v1 format
-listFF.set('v1', require('./v1.js'));
+// add support for the older v1 format
+// because v1 is a function it will only be called if needed for loading a v1 file
+listFF.set('v1', ()=>require('./v1.js'));
 
 function createSampleFile() {
   fs.writeFileSync(FILE, listFF.serialize([
@@ -28,7 +30,7 @@ function createSampleFile() {
     item({name: 'Costume', quantity: 1}),
     item({name: 'Food', quantity: 2}),
   ]));
-}
+};
 
 function readSampleFile() {
   const stores = {};

@@ -67,7 +67,7 @@ class Field {
 
   /**
   * Read a field from a stream
-  * @param {Readable} stream
+  * @param {BufferStream} stream
   */
   read(stream) {
     if (this.arraysize) {
@@ -79,7 +79,7 @@ class Field {
 
   /**
   * Write a field to a stream
-  * @param {Writeable} stream
+  * @param {BufferStream} stream
   * @param {Object} data
   */
   write(stream, data) {
