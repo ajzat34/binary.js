@@ -1,6 +1,5 @@
 const fs = require('fs');
 const {Format, Builder, Field} = require('../../index.js');
-const tk = require('./tokens.js');
 
 const FILE = './data';
 

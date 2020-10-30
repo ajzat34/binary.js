@@ -1,4 +1,4 @@
-const {Format, Builder, Field} = require('../../index.js');
+const {Builder, Field} = require('../../index.js');
 const tk = require('./tokens.js');
 
 module.exports = () => {
